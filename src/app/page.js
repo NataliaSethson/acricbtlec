@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WspButton from "@/components/WspButton";
+import BrandsMarquee from "@/components/BrandsMarquee";
 
-// Componente interno para manejar el carrusel de imágenes automático
 function ServiceCarousel({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -34,7 +34,6 @@ function ServiceCarousel({ images, title }) {
       </AnimatePresence>
       <div className="absolute inset-0 bg-[#000000]/10" />
       
-      {/* Indicadores del carrusel */}
       {images.length > 1 && (
         <div className="absolute bottom-4 right-4 flex gap-1.5 z-10 bg-[#000000]/20 backdrop-blur-sm px-2.5 py-1 rounded-full">
           {images.map((_, idx) => (
@@ -56,90 +55,79 @@ export default function Home() {
     {
       id: "btl",
       title: "ACTIVACIONES DE MARCA",
-      description: "Creamos acciones únicas e innovadoras que conectan con los consumidores a través de todos los sentidos.",
-      items: ["BTL"],
-      images: ["/images/servicio-btl.jpg", "/images/servicio-btl-2.jpg", "/images/servicio-btl-3.jpg"]
+      description: "Creamos acciones únicas e innovadoras que conectan con los consumidores a través de todos los sentidos. Desarrollamos estrategias BTL integrales que transforman los puntos de venta y los espacios públicos en escenarios experienciales, logrando un vínculo emocional profundo, alta recordación de marca y un impacto directo en los objetivos comerciales de tu negocio.",
+      items: ["BTL", "Activaciones Sensoriales", "Marketing Experiencial", "Acciones en Punto de Venta"],
+      images: ["/activaciones-marca/activaciones1.jpeg", "/activaciones-marca/activaciones2.jpeg", "/activaciones-marca/activaciones3.jpeg","/activaciones-marca/activaciones4.jpeg","/activaciones-marca/activaciones5.jpeg"]
+    },
+    {
+      id: "stands",
+      title: "STAND Y FERIAS",
+      description: "Nos apasiona destacar la presencia de nuestros clientes en las exposiciones y convenciones más importantes. Diseñamos, producimos e implementamos soluciones arquitectónicas comerciales llave en mano, garantizando un montaje impecable, estructuras ágiles con la identidad de tu negocio e infraestructura imponente que convierte tu espacio en el principal foco de atención de cualquier evento.",
+      items: ["Stands Exclusivos", "Backing", "Roll Ups", "Arquitectura Comercial", "Montaje Llave en Mano"],
+      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg"]
+    },
+    {
+      id: "articulos",
+      title: "ARTÍCULOS PROMOCIONALES",
+      description: "Tu marca en todos lados. Impulsamos el alcance de tu negocio mostrándote al mundo a través de souvenirs publicitarios estratégicos. Producimos una línea de merchandising corporativo y artículos promocionales de alta calidad, diseñados específicamente para complementar tus eventos físicos, fidelizar clientes de forma masiva y potenciar tus campañas de branding institucional.",
+      items: ["Souvenirs Publicitarios", "Merchandising Corporativo", "Regalos Empresariales", "Material Promocional Premium"],
+      images: ["/articulos-promocionales/promocionales.jpeg", "/articulos-promocionales/promocionales1.jpeg","/articulos-promocionales/promocionales2.jpeg","/articulos-promocionales/promocionales3.jpeg","/articulos-promocionales/promocionales4.jpeg","/articulos-promocionales/promocionales5.jpeg","/articulos-promocionales/promocionales7.jpeg"]
     },
     {
       id: "atl",
-      title: "ATL",
+      title: "atl",
       description: "Elaboramos el mejor plan de medios tradicionales como prensa, radio y tv para llevar tu marca a un número mayor de personas optimizando tu presupuesto.",
       items: ["Prensa", "Radio", "TV"],
       images: ["/images/servicio-atl.jpg", "/images/servicio-atl-2.jpg"]
     },
     {
       id: "lanzamientos",
-      title: "LANZAMIENTOS",
+      title: "lanzamientos",
       description: "Desarrollamos eventos estratégicos para sus productos y servicios, ayudando a su marca a conectarse con sus clientes, creamos grandes experiencias publicitarias.",
       items: ["Eventos Estratégicos", "Experiencias Publicitarias"],
       images: ["/images/servicio-lanzamientos.jpg", "/images/servicio-lanzamientos-2.jpg"]
     },
     {
-      id: "stands",
-      title: "STAND Y FERIAS",
-      description: "NOS ENCANTA DESTACAR A NUESTROS CLIENTES EN LAS FERIAS Y CONVENCIONES DONDE PARTICIPAN. STANDS EXCLUSIVOS, ACTIVACIONES CREATIVAS, ÁGILES CON LA MARCA.",
-      items: ["Stands Exclusivos", "Backing", "Roll Ups"],
-      images: ["/images/servicio-stands.jpg", "/images/servicio-stands-2.jpg", "/images/servicio-stands-3.jpg"]
-    },
-    {
       id: "imagen",
-      title: "IMAGEN CORPORATIVA",
+      title: "imagen corporativa",
       description: "Desarrollamos tu identidad de marca:",
-      items: [
-        "Logotipo - Manual De Marca",
-        "Identidad de Marca",
-        "Arquitectura de marca",
-        "Logo",
-        "Estilo visual",
-        "Paleta de colores"
-      ],
+      items: ["Logotipo - Manual De Marca", "Identidad de Marca", "Arquitectura de marca", "Logo", "Estilo visual", "Paleta de colores"],
       images: ["/images/servicio-imagen.jpg", "/images/servicio-imagen-2.jpg"]
     },
     {
       id: "diseno",
-      title: "DISEÑO GRÁFICO CORPORATIVO",
+      title: "diseño gráfico corporativo",
       description: "Soluciones de diseño estructuradas por unidades clave:",
-      items: [
-        "DISEÑO: Papelería, Brochure, Folletos, Merchandising",
-        "EDITORIAL: Reportes corporativos, Reportes de sustentabilidad, Memorias corporativas, Revistas, Libros",
-        "PACKAGING: Diseño de envases, Etiquetas, Diseño industrial"
-      ],
+      items: ["DISEÑO: Papelería, Brochure, Folletos, Merchandising", "EDITORIAL: Reportes corporativos, Reportes de sustentabilidad, Memorias corporativas, Revistas, Libros", "PACKAGING: Diseño de envases, Etiquetas, Diseño industrial"],
       images: ["/images/servicio-diseno.jpg", "/images/servicio-diseno-2.jpg"]
     },
     {
-      id: "articulos",
-      title: "ARTÍCULOS PROMOCIONALES",
-      description: "TU MARCA EN TODOS LADOS. Deja que la gente hable de ti mostrándote al mundo con souvenirs publicitarios.",
-      items: ["Souvenirs Publicitarios"],
-      images: ["/images/servicio-promocionales.jpg", "/images/servicio-promocionales-2.jpg"]
-    },
-    {
       id: "marketing",
-      title: "MARKETING DIGITAL",
+      title: "marketing digital",
       description: "Nuestro servicio se enfoca en lograr sus objetivos más ambiciosos, englobando su marketing digital de punta a punta, utilizando técnicas y herramientas avanzadas de marketing y analítica digital que permitirán sacar el máximo provecho a tu inversión.",
       items: ["REDES SOCIALES", "GOOGLE ADS", "PÁGINAS WEB", "CAMPAÑAS DIGITALES"],
       images: ["/images/servicio-marketing.jpg", "/images/servicio-marketing-2.jpg"]
     },
     {
       id: "produccion",
-      title: "PRODUCCIÓN AUDIOVISUAL",
+      title: "producción audiovisual",
       description: "Producción de contenidos visuales de alto impacto.",
       items: ["FOTOGRAFÍA", "VIDEOS PARA REDES SOCIALES", "VIDEOS PARA COMERCIALES", "COBERTURA DE EVENTOS"],
       images: ["/images/servicio-produccion.jpg", "/images/servicio-produccion-2.jpg"]
     },
     {
       id: "material-pop",
-      title: "MATERIAL POP",
-      description: "IMPRESIÓN DE: COLGANTES, DANGLERS, STOPPERS, BANNERS, ENTRE OTROS.",
+      title: "material pop",
+      description: "Impresión de: colgantes, danglers, stoppers, banners, entre otros.",
       items: ["OFFSET"],
-      images: ["/images/servicio-pop.jpg", "/images/servicio-pop-2.jpg"]
+      images: ["/material-pop/pop.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg"]
     },
     {
       id: "inflables",
-      title: "INFLABLES CORPORATIVOS",
+      title: "inflables corporativos",
       description: "Estructuras a gran escala para generar el efecto de marca deseado en exteriores e interiores públicos.",
       items: ["Efecto de Marca"],
-      images: ["/images/servicio-inflables.jpg"]
+      images: ["/inflables-corporativos/inflables.jpeg","/inflables-corporativos/inflables1.jpeg","/inflables-corporativos/inflables2.jpeg","/inflables-corporativos/inflables3.jpeg","/inflables-corporativos/inflables4.jpeg"]
     }
   ];
 
@@ -154,11 +142,11 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen font-sans antialiased pt-20 overflow-x-hidden">
+    <div className="bg-[#FFFFFF] text-[#000000] min-h-screen font-sans antialiased pt-20 overflow-x-hidden scroll-smooth">
       <Navbar />
 
       {/* HERO SECTION */}
-      <section id="inicio" className="min-h-[85vh] flex flex-col justify-center px-6 max-w-7xl mx-auto relative">
+      <section id="inicio" className="min-h-[85vh] flex flex-col justify-center px-6 max-w-7xl mx-auto relative scroll-mt-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -175,13 +163,13 @@ export default function Home() {
           </h1>
           
           <p className="text-[#000000]/75 text-lg md:text-xl max-w-3xl font-light leading-relaxed">
-            Somos una empresa que se dedica al desarrollo e implementación de soluciones inteligentes publicitarias, utilizando modelos estratégicos y claros para optimizar los resultados de tu negocio[cite: 1].
+            Somos una empresa que se dedica al desarrollo e implementación de soluciones inteligentes publicitarias, utilizando modelos estratégicos y claros para optimizar los resultados de tu negocio.
           </p>
         </motion.div>
       </section>
 
       {/* SECCIÓN ¿QUIÉNES SOMOS? */}
-      <section id="nosotros" className="py-24 md:py-32 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)]">
+      <section id="nosotros" className="py-24 md:py-32 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)] scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <motion.div 
             initial="hidden"
@@ -204,14 +192,14 @@ export default function Home() {
             className="md:col-span-7"
           >
             <p className="text-[#FFFFFF]/90 text-lg md:text-2xl font-light leading-relaxed">
-              Somos una empresa que se dedica al desarrollo e implementación de soluciones inteligentes publicitarias, que utiliza modelos estratégicos y claros para optimizar los resultados del negocio[cite: 1].
+              Somos una empresa que se dedica al development e implementación de soluciones inteligentes publicitarias, que utiliza modelos estratégicos y claros para optimizar los resultados del negocio.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECCIÓN SERVICIOS - FONDO BLANCO GRAL CON BLOQUES DE TEXTO INTERCALADOS VERDE/NARANJA */}
-      <section id="servicios" className="py-24 bg-[#FFFFFF] relative z-30">
+      {/* SECCIÓN SERVICIOS */}
+      <section id="servicios" className="py-24 bg-[#FFFFFF] relative z-30 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-24">
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-[#000000]">
             SERVICIOS
@@ -221,12 +209,9 @@ export default function Home() {
         <div className="space-y-0 border-t border-gray-100">
           {acricServices.map((service, index) => {
             const isImageLeft = index % 2 === 0;
-            
-            // Intercalado estricto de colores de fondo de los bloques contenedores
             const isGreenBlock = index % 2 === 0;
             const bgClass = isGreenBlock ? "bg-[#A6CE39]" : "bg-[#FF6B00]";
             
-            // Si el bloque es naranja, los textos secundarios en blanco se leen mejor
             const textMutedClass = isGreenBlock ? "text-[#000000]/70" : "text-[#FFFFFF]/90";
             const textTitleClass = isGreenBlock ? "text-[#000000]" : "text-[#FFFFFF]";
             const lineClass = isGreenBlock ? "bg-[#000000]/20" : "bg-[#FFFFFF]/30";
@@ -234,9 +219,10 @@ export default function Home() {
             return (
               <div 
                 key={service.id} 
-                className="grid grid-cols-1 md:grid-cols-2 min-h-[460px] md:min-h-[540px] items-stretch border-b border-gray-100 overflow-hidden bg-[#FFFFFF]"
+                id={service.id} // ID EXACTO PARA CADA BLOQUE INDIVIDUAL
+                className="grid grid-cols-1 md:grid-cols-2 min-h-[460px] md:min-h-[540px] items-stretch border-b border-gray-100 overflow-hidden bg-[#FFFFFF] scroll-mt-20"
               >
-                {/* 50% IMAGEN (CARRUSEL AUTOMÁTICO) */}
+                {/* 50% IMAGEN */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
@@ -247,7 +233,7 @@ export default function Home() {
                   <ServiceCarousel images={service.images} title={service.title} />
                 </motion.div>
 
-                {/* 50% BLOQUE DE TEXTO INTERCALADO (VERDE O NARANJA) */}
+                {/* 50% TEXTO */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
@@ -289,13 +275,12 @@ export default function Home() {
                     </div>
                   </div>
                 </motion.div>
-
               </div>
             );
           })}
         </div>
       </section>
-
+      <BrandsMarquee />
       <Footer />
       <WspButton />
     </div>
