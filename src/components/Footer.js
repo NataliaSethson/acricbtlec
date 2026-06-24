@@ -1,107 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export default function Footer() {
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" } 
-    }
-  };
-
   return (
-    <footer id="contacto" className="bg-[#000000] text-[#FFFFFF] pt-24 pb-12 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+    <footer className="bg-[#000000] text-[#FFFFFF] pb-12 pt-8 relative z-40 block">
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* COLUMNA DE CONTACTO OFICIAL */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="md:col-span-5 space-y-8"
-        >
-          <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
-            ¿HACEMOS <br />ALGO GRANDE <br />
-            <span className="bg-[#A6CE39] text-[#000000] px-3 py-1 inline-block mt-2 text-3xl md:text-5xl">JUNTOS?</span>
-          </h3>
-          <p className="text-gray-400 font-light max-w-sm text-base md:text-lg">
-            Ponete en contacto hoy mismo para estructurar una propuesta a la medida de tus objetivos de negocio.
-          </p>
+        {/* LÍNEA DIVISORA SUPERIOR ELEGANTE */}
+        <div className="w-full h-[1px] bg-[#FFFFFF]/10 mb-8" />
+        
+        {/* CONTENEDOR DE CRÉDITOS Y REDES */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500">
           
-          {/* DATOS LITERALES DE LA PRESENTACIÓN */}
-          <div className="space-y-4 text-sm md:text-base text-gray-300 font-mono pt-4">
-            <a href="mailto:andreacruz@acricbtl.com" className="flex items-center gap-3 hover:text-[#A6CE39] transition-colors group">
-              <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📩</span> 
-              andreacruz@acricbtl.com
+          {/* DERECHOS RESERVADOS ACTUALIZADOS */}
+          <div className="flex items-center gap-2 font-light order-2 md:order-1">
+            <p>© 2012 — 2026 ACRIC. Todos los derechos reservados.</p>
+          </div>
+
+          {/* ENLACES A REDES SOCIALES MINIMALISTAS */}
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 order-1 md:order-2 font-mono text-[11px] uppercase tracking-wider text-gray-400">
+            <a href="https://www.instagram.com/acricbtlec/" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
+              Instagram
             </a>
-            <a href="tel:0963330284" className="flex items-center gap-3 hover:text-[#A6CE39] transition-colors group">
-              <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📞</span> 
-              096 333 0284
+            <span className="text-[#FFFFFF]/10">/</span>
+            <a href="https://www.linkedin.com/company/acric-btl/" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
+              LinkedIn
             </a>
-            <a href="https://instagram.com/ACRICBTLEC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-[#A6CE39] transition-colors group">
-              <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📸</span> 
-              @ACRICBTLEC
+            <span className="text-[#FFFFFF]/10">/</span>
+            <a href="https://x.com/acricbtlmkt" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
+              X (Twitter)
+            </a>
+            <span className="text-[#FFFFFF]/10">/</span>
+            <a href="https://www.facebook.com/profile.php?id=100086748770586" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
+              Facebook
             </a>
           </div>
-        </motion.div>
-        
-        {/* COLUMNA DEL FORMULARIO DE COTIZACIÓN */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-          className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2rem] backdrop-blur-sm"
-        >
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
-                <input 
-                  type="text" 
-                  placeholder="Ej. Juan Pérez / Empresa S.A." 
-                  className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm" 
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Correo Electrónico</label>
-                <input 
-                  type="email" 
-                  placeholder="ejemplo@correo.com" 
-                  className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm" 
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">¿De qué trata tu proyecto o activación?</label>
-              <textarea 
-                placeholder="Contanos brevemente qué ideas querés poner en marcha..." 
-                rows={4} 
-                className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm resize-none"
-              ></textarea>
-            </div>
-            
-            <button 
-              type="button" 
-              className="w-full bg-[#A6CE39] text-[#000000] font-black uppercase tracking-widest p-4 rounded-xl hover:bg-[#FFFFFF] hover:scale-[1.01] shadow-lg transition-all text-xs"
-            >
-              Enviar Mensaje →
-            </button>
-          </form>
-        </motion.div>
-      </div>
-      
-      {/* LÍNEA DE CRÉDITOS Y COPYRIGHT */}
-      <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-[#FFFFFF]/10 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
-        <p>© 2026 ACRIC. Todos los derechos reservados.</p>
-        <p className="font-mono tracking-widest text-[10px] text-[#A6CE39]/70 uppercase">
-          #TUSIDEASENMARCHA // BTL 360
-        </p>
+
+          {/* BRANDING INDUSTRIAL TEXTUAL */}
+          <div className="font-mono tracking-widest text-[10px] text-[#A6CE39]/70 uppercase text-center md:text-right order-3">
+            #TUSIDEASENMARCHA // BTL 
+          </div>
+          
+        </div>
       </div>
     </footer>
   );

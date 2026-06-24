@@ -10,7 +10,7 @@ export default function Navbar() {
         
         {/* LOGO CLICKEABLE CON TAMAÑO MÁS GRANDE Y MARGEN NATURAL */}
         <div className="flex items-center py-2">
-          <a href="#inicio" className="transition-transform hover:scale-[1.02] inline-block">
+          <a href="/" className="transition-transform hover:scale-[1.02] inline-block">
             <Image 
               src="/logo.png" 
               alt="Logo ACRIC" 
@@ -24,13 +24,7 @@ export default function Navbar() {
         
         {/* NAVEGACIÓN PRINCIPAL CON LINKS DIRECTOS Y EXPUESTOS */}
         <nav className="hidden md:flex space-x-8 lg:space-x-10 text-xs font-black uppercase tracking-widest text-[#000000]/70 relative items-center">
-          <a href="#inicio" className="hover:text-[#A6CE39] transition-colors">
-            Inicio
-          </a>
-          <a href="#nosotros" className="hover:text-[#A6CE39] transition-colors">
-            Agencia
-          </a>
-          
+        
           {/* Tus líneas más fuertes expuestas directamente, sin dropdowns */}
           <a href="#btl" className="hover:text-[#A6CE39] transition-colors">
             Activaciones BTL
@@ -42,14 +36,14 @@ export default function Navbar() {
             Promocionales
           </a>
 
-          <a href="#contacto" className="hover:text-[#A6CE39] transition-colors">
+          <a href="/contacto" className="hover:text-[#A6CE39] transition-colors">
             Contacto
           </a>
         </nav>
 
         {/* BOTÓN COTIZAR */}
         <a 
-          href="#contacto" 
+          href="/contacto" 
           className="bg-[#000000] text-[#FFFFFF] font-black px-6 py-3 rounded-full text-xs uppercase tracking-widest hover:bg-[#A6CE39] hover:text-[#000000] transition-all shadow-sm"
         >
           Cotizar Proyecto
