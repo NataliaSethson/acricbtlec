@@ -12,7 +12,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ACRIC | Agencia BTL & Marketing 360°",
+  title: "ACRIC | Agencia BTL & Marketing",
   description: "Desarrollamos e implementamos soluciones inteligentes publicitarias y activaciones de alto impacto.",
 };
 
