@@ -23,13 +23,15 @@ export default function ContactSection() {
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
-        {/* COLUMNA IZQUIERDA: Textos + Vías de contacto integradas al estilo del footer */}
+        {/* ==========================================
+            ESTRUCTURA EXCLUSIVA PARA PANTALLAS GRANDES (md en adelante)
+            ========================================== */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="md:col-span-5 space-y-8"
+          className="hidden md:block md:col-span-5 space-y-8"
         >
           <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none">
             ¿HACEMOS <br />ALGO GRANDE <br />
@@ -39,7 +41,6 @@ export default function ContactSection() {
             Ponete en contacto hoy mismo para estructurar una propuesta a la medida de tus objetivos de negocio.
           </p>
           
-          {/* OTRAS VÍAS DE CONTACTO INTEGRADAS */}
           <div className="space-y-4 text-sm md:text-base text-gray-300 font-mono pt-6 border-t border-[#FFFFFF]/10">
             <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-2">Otras vías de contacto</p>
             
@@ -55,7 +56,28 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        {/* COLUMNA DERECHA: El formulario pleno en su caja de cristal blur */}
+        {/* ==========================================
+            TEXTO SUPERIOR EXCLUSIVO MOBILE / TABLET (Centrado)
+            ========================================== */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="block md:hidden flex flex-col items-center text-center space-y-6"
+        >
+          <h3 className="text-4xl font-black uppercase tracking-tighter leading-none">
+            ¿HACEMOS <br />ALGO GRANDE <br />
+            <span className="bg-[#A6CE39] text-[#000000] px-3 py-1 inline-block mt-2 text-3xl">JUNTOS?</span>
+          </h3>
+          <p className="text-gray-400 font-light max-w-sm text-base">
+            Ponete en contacto hoy mismo para estructurar una propuesta a la medida de tus objetivos de negocio.
+          </p>
+        </motion.div>
+
+        {/* ==========================================
+            EL FORMULARIO (Común a ambos, se amolda según la pantalla)
+            ========================================== */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -99,6 +121,31 @@ export default function ContactSection() {
               Enviar Mensaje →
             </button>
           </form>
+        </motion.div>
+
+        {/* ==========================================
+            TEXTO INFERIOR EXCLUSIVO MOBILE / TABLET (Centrado)
+            ========================================== */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="block md:hidden flex flex-col items-center text-center space-y-4 text-sm text-gray-300 font-mono pt-6 border-t border-[#FFFFFF]/10 w-full"
+        >
+          <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-2">Otras vías de contacto</p>
+          
+          <div className="flex flex-col gap-4 w-full items-center">
+            <a href={`mailto:${acricData.info.email}`} className="flex items-center justify-center gap-3 hover:text-[#A6CE39] transition-colors group">
+              <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📩</span>
+              {acricData.info.email}
+            </a>
+            
+            <a href={`tel:${acricData.info.phone.replace(/\s/g, '')}`} className="flex items-center justify-center gap-3 hover:text-[#A6CE39] transition-colors group">
+              <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📞</span>
+              {acricData.info.phone}
+            </a>
+          </div>
         </motion.div>
 
       </div>

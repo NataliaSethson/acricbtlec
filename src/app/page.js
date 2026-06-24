@@ -15,12 +15,11 @@ function ServiceCarousel({ images, title }) {
     
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4500); // Subí a 4.5s para que dé tiempo a apreciar el video
+    }, 4500);
     
     return () => clearInterval(timer);
   }, [images]);
 
-  // Evaluamos si el archivo actual del carrusel termina en .mp4
   const currentFile = images?.[currentIndex] || "";
   const isVideo = currentFile.endsWith(".mp4");
 
@@ -28,7 +27,6 @@ function ServiceCarousel({ images, title }) {
     <div className="absolute inset-0 w-full h-full overflow-hidden bg-gray-900">
       <AnimatePresence mode="popLayout">
         {isVideo ? (
-          /* SI EL SLIDE ACTUAL ES UN VIDEO */
           <motion.video
             key={currentIndex}
             src={currentFile}
@@ -43,7 +41,6 @@ function ServiceCarousel({ images, title }) {
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
-          /* SI EL SLIDE ACTUAL ES UNA IMAGEN */
           currentFile && (
             <motion.img
               key={currentIndex}
@@ -59,10 +56,8 @@ function ServiceCarousel({ images, title }) {
         )}
       </AnimatePresence>
       
-      {/* Capa de contraste estética */}
       <div className="absolute inset-0 bg-[#000000]/10" />
       
-      {/* Puntitos indicadores */}
       {images && images.length > 1 && (
         <div className="absolute bottom-4 right-4 flex gap-1.5 z-10 bg-[#000000]/20 backdrop-blur-sm px-2.5 py-1 rounded-full">
           {images.map((_, idx) => (
@@ -98,7 +93,7 @@ export default function Home() {
     {
       id: "articulos",
       title: "ARTÍCULOS PROMOCIONALES",
-      description: "Tu marca en todos lados. Impulsamos el alcance de tu negocio mostrándote al mundo a través de souvenirs publicitarios estratégicos. Producimos una línea de merchandising corporativo y artículos promocionales de alta calidad, diseñados específicamente para complementar tus eventos físicos, fidelizar clientes de forma masiva y potenciar tus campañas de branding institucional.",
+      description: "Tu marca en todos lados. Impulsamos el alcance de tu negocio mostrándote al mundo a través de souvenirs publicitarios estratégicos. Producimos una línea de merchandising corporativo y artículos promocionales de alta calidad, diseñados específicamente para complementar tus eventos físicos, fidelizar clientes de forma masiva y potenciar tus campaigns de branding institucional.",
       items: ["Souvenirs Publicitarios", "Merchandising Corporativo", "Regalos Empresariales", "Material Promocional Premium"],
       images: ["/articulos-promocionales/promocionales.jpeg", "/articulos-promocionales/promocionales1.jpeg","/articulos-promocionales/promocionales2.jpeg","/articulos-promocionales/promocionales3.jpeg","/articulos-promocionales/promocionales4.jpeg","/articulos-promocionales/promocionales5.jpeg","/articulos-promocionales/promocionales7.jpeg"]
     },
@@ -116,7 +111,7 @@ export default function Home() {
       items: ["Eventos Estratégicos", "Experiencias Publicitarias"],
       images: ["/lanzamientos/lanzamientos1.jpeg", "/lanzamientos/lanzamientos2.jpeg","/lanzamientos/lanzamientos3.jpeg","/lanzamientos/lanzamientos4.jpeg"]
     },
-{
+    {
       id: "branding-corporativo",
       title: "BRANDING E IDENTIDAD CORPORATIVA",
       description: "Desarrollamos tu identidad corporativa mediante un sistema de diseño estructurado por unidades clave, optimizando la comunicación visual de tu negocio en proyectos editoriales, comerciales y de packaging.",
@@ -177,22 +172,17 @@ export default function Home() {
     <div className="bg-[#FFFFFF] text-[#000000] min-h-screen font-sans antialiased pt-20 overflow-x-hidden scroll-smooth">
       <Navbar />
 
-{/* HERO SECTION */}
-      {/* Se cambió a min-h-screen para que la imagen ocupe todo el fondo inicial y scroll-mt-28 por la nueva altura del navbar */}
+      {/* HERO SECTION */}
       <section id="inicio" className="min-h-screen w-full flex flex-col justify-center px-6 relative scroll-mt-28 overflow-hidden bg-[#FFFFFF]">
-        
-        {/* IMAGEN DE FONDO ABSOLUTA */}
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="/fondo.jpg" // Reemplazá por la ruta real de tu imagen de fondo
+            src="/fondo.jpg" 
             alt="Fondo ACRIC" 
             className="w-full h-full object-cover"
           />
-          {/* Capa de superposición sutil (Overlay) para asegurar el contraste del texto negro */}
           <div className="absolute inset-0 bg-[#FFFFFF]/40 backdrop-blur-[2px]" />
         </div>
 
-        {/* CONTENIDO DEL HERO */}
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -212,7 +202,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* SECCIÓN ¿QUIÉNES SOMOS? */}
+      {/* SECCIÓN ¿QUIÉNES SOMOS? */}
       <section id="nosotros" className="py-24 md:py-32 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)] scroll-mt-20 block overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <motion.div 
@@ -236,7 +226,7 @@ export default function Home() {
             className="md:col-span-7"
           >
             <p className="text-[#FFFFFF]/90 text-lg md:text-2xl font-light leading-relaxed">
-              Somos una empresa con más de 14 años de experiencia en el mercado, dedicada al desarrollo e implementación de soluciones inteligentes publicitarias, que utiliza models estratégicos y claros para optimizar los resultados del negocio.
+              Somos una empresa con más de 14 años de experiencia en el mercado, dedicada al desarrollo e implementación de soluciones inteligentes publicitarias, que utiliza modelos estratégicos y claros para optimizar los resultados del negocio.
             </p>
           </motion.div>
         </div>
@@ -244,19 +234,16 @@ export default function Home() {
 
       {/* SECCIÓN SERVICIOS */}
       <section id="servicios" className="relative z-30 scroll-mt-20">
-        {/* BLOQUE DE TÍTULO EXCLUSIVO EN NARANJA PLENO (PEGADO AL BLOQUE NEGRO) */}
-{/* BLOQUE DE TÍTULO EN NARANJA PLENO CON TEXTO INFINITO CORRIENDO */}
         <div className="w-full bg-[#FF6B00] py-14 md:py-20 border-b border-gray-100 overflow-hidden relative select-none">
           <motion.div 
             className="flex whitespace-nowrap gap-16 md:gap-24 uppercase font-black tracking-tighter text-5xl sm:text-7xl md:text-8xl text-[#FFFFFF]"
             animate={{ x: [0, "-50%"] }}
             transition={{
               ease: "linear",
-              duration: 15, // Bajá este número si querés que corra más rápido
+              duration: 15,
               repeat: Infinity
             }}
           >
-            {/* Repetimos el bloque de texto varias veces para garantizar que cubra toda la pantalla al desplazarse */}
             <div className="flex gap-16 md:gap-24 shrink-0">
               <span>SERVICIOS</span>
               <span className="text-[#000000]/20">•</span>
@@ -289,27 +276,18 @@ export default function Home() {
             return (
               <div 
                 key={service.id} 
-                id={service.id} // ID EXACTO PARA CADA BLOQUE INDIVIDUAL
+                id={service.id} 
                 className="grid grid-cols-1 md:grid-cols-2 min-h-[460px] md:min-h-[540px] items-stretch border-b border-gray-100 overflow-hidden bg-[#FFFFFF] scroll-mt-20"
               >
-                {/* 50% IMAGEN */}
-                <motion.div 
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, margin: "-80px" }}
-                  variants={isImageLeft ? slideFromLeft : slideFromRight}
-                  className={`relative min-h-[300px] md:min-h-full bg-gray-50 ${isImageLeft ? 'md:order-1' : 'md:order-2'}`}
-                >
-                  <ServiceCarousel images={service.images} title={service.title} />
-                </motion.div>
-
-                {/* 50% TEXTO */}
+                {/* BLOQUE DE TEXTO: Primero en el HTML. Se mantiene arriba en mobile (grid-cols-1) */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-80px" }}
                   variants={isImageLeft ? slideFromRight : slideFromLeft}
-                  className={`p-8 sm:p-12 md:p-20 flex flex-col justify-center ${bgClass} ${!isImageLeft ? 'md:order-1' : 'md:order-2'}`}
+                  className={`p-8 sm:p-12 md:p-20 flex flex-col justify-center ${bgClass} ${
+                    isImageLeft ? "md:order-2" : "md:order-1"
+                  }`}
                 >
                   <div className="max-w-xl space-y-4 md:space-y-5">
                     <div className="flex items-center gap-4">
@@ -344,6 +322,19 @@ export default function Home() {
                       </ul>
                     </div>
                   </div>
+                </motion.div>
+
+                {/* BLOQUE DE IMAGEN: Segundo en el HTML. Se mantiene abajo en mobile (grid-cols-1) */}
+                <motion.div 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                  variants={isImageLeft ? slideFromLeft : slideFromRight}
+                  className={`relative min-h-[300px] md:min-h-full bg-gray-50 ${
+                    isImageLeft ? "md:order-1" : "md:order-2"
+                  }`}
+                >
+                  <ServiceCarousel images={service.images} title={service.title} />
                 </motion.div>
               </div>
             );
