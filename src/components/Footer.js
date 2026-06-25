@@ -26,10 +26,6 @@ export default function Footer() {
               LinkedIn
             </a>
             <span className="text-[#FFFFFF]/10">/</span>
-            <a href="https://x.com/acricbtlmkt" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
-              X (Twitter)
-            </a>
-            <span className="text-[#FFFFFF]/10">/</span>
             <a href="https://www.facebook.com/profile.php?id=100086748770586" target="_blank" rel="noopener noreferrer" className="hover:text-[#A6CE39] transition-colors">
               Facebook
             </a>
