@@ -1,10 +1,4 @@
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
-
 [build]
   command = "npm run build"
   publish = ".next"
 
-# Forzamos a Netlify a buscar los formularios en el directorio de exportación estática
-[plugins.inputs]
-  v5MigrationForms = true
