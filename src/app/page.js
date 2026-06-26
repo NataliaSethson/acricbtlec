@@ -115,7 +115,6 @@ export default function Home() {
         "/imagen-corporativa/imgcorpo2.png",
         "/imagen-corporativa/imgcorpo3.webp",
          "/imagen-corporativa/imgcorpo4.png",
-          "/imagen-corporativa/imgcorpo5.png",
            "/imagen-corporativa/imgcorpo6.png",
       ]
     },
@@ -271,7 +270,7 @@ export default function Home() {
   </div>
   
 
-        <div className="space-y-0 border-t border-gray-100">
+<div className="space-y-0 border-t border-gray-100">
           {acricServices.map((service, index) => {
             const isImageLeft = index % 2 === 0;
             const isGreenBlock = index % 2 === 0;
@@ -285,16 +284,16 @@ export default function Home() {
               <div 
                 key={service.id} 
                 id={service.id} 
-                className="grid grid-cols-1 md:grid-cols-2 min-h-[460px] md:min-h-[540px] items-stretch border-b border-gray-100 overflow-hidden bg-[#FFFFFF] scroll-mt-20"
+                className="grid grid-cols-1 lg:grid-cols-2 h-auto lg:h-[650px] items-stretch border-b border-gray-100 overflow-hidden bg-[#FFFFFF] scroll-mt-20"
               >
-                {/* BLOQUE DE TEXTO: Primero en el HTML. Se mantiene arriba en mobile (grid-cols-1) */}
+                {/* BLOQUE DE TEXTO */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-80px" }}
                   variants={isImageLeft ? slideFromRight : slideFromLeft}
-                  className={`p-8 sm:p-12 md:p-20 flex flex-col justify-center ${bgClass} ${
-                    isImageLeft ? "md:order-2" : "md:order-1"
+                  className={`p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center h-full ${bgClass} ${
+                    isImageLeft ? "lg:order-2" : "lg:order-1"
                   }`}
                 >
                   <div className="max-w-xl space-y-4 md:space-y-5">
@@ -313,35 +312,33 @@ export default function Home() {
                       {service.description}
                     </p>
 
-<div className="pt-4 md:pt-6">
-  {/* Flex con más separación física entre los botones (gap-3) */}
-  <ul className="flex flex-wrap gap-3 md:gap-4">
-    {service.items.map((item, idx) => (
-      <li 
-        key={idx} 
-        // Agrandé la tipografía (text-xs md:text-sm), sumé paddings premium (px-5 py-2.5) y configuré contrastes plenos directos
-        className={`uppercase font-black tracking-wider text-xs md:text-sm px-4 py-2.2 rounded-full shadow-sm transition-all duration-300 hover:scale-105 select-none ${
-          isGreenBlock 
-            ? 'bg-[#000000] text-[#A6CE39] border border-transparent' // En bloque verde: Botón negro sólido con letras verde flúor (Máximo contraste)
-            : 'bg-[#FFFFFF] text-[#FF6B00] border border-transparent' // En bloque naranja: Botón blanco sólido con letras naranjas (Resalta muchísimo)
-        }`}
-      >
-        {item}
-      </li>
-    ))}
-  </ul>
-</div>
+                    <div className="pt-4 md:pt-6">
+                      <ul className="flex flex-wrap gap-3 md:gap-4">
+                        {service.items.map((item, idx) => (
+                          <li 
+                            key={idx} 
+                            className={`uppercase font-black tracking-wider text-xs md:text-sm px-4 py-2 rounded-full shadow-sm transition-all duration-300 hover:scale-105 select-none ${
+                              isGreenBlock 
+                                ? 'bg-[#000000] text-[#A6CE39] border border-transparent' 
+                                : 'bg-[#FFFFFF] text-[#FF6B00] border border-transparent' 
+                            }`}
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </motion.div>
 
-                {/* BLOQUE DE IMAGEN: Segundo en el HTML. Se mantiene abajo en mobile (grid-cols-1) */}
+                {/* BLOQUE DE IMAGEN */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, margin: "-80px" }}
                   variants={isImageLeft ? slideFromLeft : slideFromRight}
-                  className={`relative min-h-[300px] md:min-h-full bg-gray-50 ${
-                    isImageLeft ? "md:order-1" : "md:order-2"
+                  className={`relative w-full aspect-square lg:aspect-auto h-full bg-gray-50 ${
+                    isImageLeft ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
                   <ServiceCarousel images={service.images} title={service.title} />
