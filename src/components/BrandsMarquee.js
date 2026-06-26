@@ -21,7 +21,7 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo13.svg", alt: "Logo Empresa 13" },
     { src: "/empresas/logo14.jpg", alt: "Logo Empresa 14" },
     { src: "/empresas/logo15.png", alt: "Logo Empresa 15" },
-    { src: "/empresas/logo16.png", alt: "Logo Empresa 16" },
+    { src: "/empresas/logo40.png", alt: "Logo Empresa 40" },
     { src: "/empresas/logo17.jpg", alt: "Logo Empresa 17" },
     { src: "/empresas/logo18.png", alt: "Logo Empresa 18" },
     { src: "/empresas/logo19.svg", alt: "Logo Empresa 19" },
@@ -85,12 +85,9 @@ export default function BrandsMarquee() {
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                width={140}
-                height={70}
-                className="object-contain max-h-full transition-all duration-500 filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100"
-                style={{
-                  mixBlendMode: "multiply", 
-                }}
+                width={160}
+                height={80}
+              className="object-contain max-h-full opacity-100 grayscale-0"
                 loading="lazy"
               />
             </div>

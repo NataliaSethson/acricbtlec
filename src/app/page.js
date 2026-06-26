@@ -88,7 +88,7 @@ export default function Home() {
       title: "STANDS Y FERIAS",
       description: "Nos apasiona destacar la presencia de nuestros clientes en las exposiciones y convenciones más importantes. Diseñamos, producimos e implementamos soluciones arquitectónicas comerciales, garantizando un montaje impecable, estructuras ágiles con la identidad de tu negocio e infraestructura imponente que convierte tu espacio en el principal foco de atención de cualquier evento. ",
       items: ["Stands Exclusivos", "Backing", "Roll Ups", "Arquitectura Comercial", "Montaje Llave en Mano"],
-      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg"]
+      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg","/stand-corporativos/stand9.jpeg"]
     },
     {
       id: "articulos",
@@ -110,9 +110,13 @@ export default function Home() {
         "Packaging: Envases, Etiquetas y Diseño Industrial"
       ],
       images: [
+        "/imagen-corporativa/imgcorpo.png", 
         "/imagen-corporativa/imgcorpo1.png", 
-        "/imagen-corporativa/imgcorpo2.jpeg",
-        "/imagen-corporativa/imgcorpo3.webp"
+        "/imagen-corporativa/imgcorpo2.png",
+        "/imagen-corporativa/imgcorpo3.webp",
+         "/imagen-corporativa/imgcorpo4.png",
+          "/imagen-corporativa/imgcorpo5.png",
+           "/imagen-corporativa/imgcorpo6.png",
       ]
     },
     {
@@ -127,21 +131,21 @@ export default function Home() {
       title: "producción audiovisual",
       description: "Producción de contenidos visuales de alto impacto.",
       items: ["FOTOGRAFÍA", "VIDEOS PARA REDES SOCIALES", "VIDEOS PARA COMERCIALES", "COBERTURA DE EVENTOS"],
-      images: ["/audiovisual/visual1.mp4", "/audiovisual/visual2.jpeg"]
+      images: ["/audiovisual/visual1.png", "/audiovisual/visual2.png"]
     },
     {
       id: "material-pop",
       title: "material pop",
       description: "Impresión de: colgantes, danglers, stoppers, banners, entre otros.",
       items: ["OFFSET"],
-      images: ["/material-pop/pop.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg"]
+      images: ["/material-pop/pop.jpeg","/material-pop/pop0.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg","material-pop/pop6.jpeg","material-pop/pop7.jpeg","material-pop/pop9.jpeg","material-pop/popp.jpeg"]
     },
     {
       id: "inflables",
       title: "inflables corporativos",
       description: "Estructuras a gran escala para generar el efecto de marca deseado en exteriores e interiores públicos.",
       items: ["Efecto de Marca"],
-      images: ["/inflables-corporativos/inflables.jpeg","/inflables-corporativos/inflables1.jpeg","/inflables-corporativos/inflables2.jpeg","/inflables-corporativos/inflables3.jpeg","/inflables-corporativos/inflables4.jpeg"]
+      images: ["/inflables-corporativos/inflables.jpeg","/inflables-corporativos/inflables1.jpeg","/inflables-corporativos/inflables2.jpeg","/inflables-corporativos/inflables3.jpeg","/inflables-corporativos/inflables4.jpeg","/inflables-corporativos/inflables5.jpeg","/inflables-corporativos/inflables9.jpeg"]
     },
         {
       id: "atl",
@@ -184,13 +188,13 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="max-w-5xl space-y-6"
           >
-            <div className="inline-flex items-center gap-2 bg-[#A6CE39]/15 border border-[#A6CE39]/50 px-4 py-1.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest text-[#000000]">
-              #TUSIDEASENMARCHA
-            </div>
+           <div className="inline-flex items-center gap-2 bg-[#A6CE39] px-4 py-3 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest text-[#000000] shadow-sm">
+           #TUSIDEASENMARCHA
+          </div>
             
             <h1 className="text-5xl sm:text-6xl md:text-[6.5rem] font-black tracking-tighter leading-[0.95] md:leading-[0.85] uppercase text-[#000000]">
               ACRIC <br />
-              <span className="text-[#A6CE39]">TUS IDEAS EN MARCHA .</span>
+              <span className="text-font-black">TUS IDEAS EN MARCHA .</span>
             </h1>
           </motion.div>
         </div>

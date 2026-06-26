@@ -1,8 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function ContactSection() {
+  // 1. Estados para los campos, errores y el proceso de envío
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -19,13 +31,77 @@ export default function ContactSection() {
     }
   };
 
+  // 2. Manejador de cambios en los inputs
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    // Limpia el error del campo que se está modificando
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  // 3. Función de Validación
+  const validateForm = () => {
+    let formErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!formData.name.trim()) {
+      formErrors.name = "Por favor, ingresá tu nombre o empresa.";
+    }
+    if (!formData.email.trim()) {
+      formErrors.email = "El correo electrónico es requerido.";
+    } else if (!emailRegex.test(formData.email)) {
+      formErrors.email = "Ingresá un formato de correo válido.";
+    }
+    if (!formData.message.trim()) {
+      formErrors.message = "Contanos un poco de qué trata tu proyecto.";
+    } else if (formData.message.trim().length < 10) {
+      formErrors.message = "El mensaje debe ser un poco más detallado.";
+    }
+
+    setErrors(formErrors);
+    return Object.keys(formErrors).length === 0;
+  };
+
+  // 4. Manejador del Envío compatible con Netlify
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Función helper para codificar los datos para Netlify POST
+      const encode = (data) => {
+        return Object.keys(data)
+          .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+          .join("&");
+      };
+
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contacto", ...formData }),
+      });
+
+      setSubmitSuccess(true);
+      setFormData({ name: "", email: "", message: "" }); // Resetea el formulario
+    } catch (error) {
+      console.error("Error al enviar el formulario:", error);
+      alert("Hubo un problema al enviar el mensaje. Intentalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
-        {/* ==========================================
-            ESTRUCTURA EXCLUSIVA PARA PANTALLAS GRANDES (md en adelante)
-            ========================================== */}
+        {/* ESTRUCTURA EXCLUSIVA PARA PANTALLAS GRANDES */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -56,9 +132,7 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        {/* ==========================================
-            TEXTO SUPERIOR EXCLUSIVO MOBILE / TABLET (Centrado)
-            ========================================== */}
+        {/* TEXTO SUPERIOR EXCLUSIVO MOBILE / TABLET */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -75,57 +149,104 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* ==========================================
-            EL FORMULARIO (Común a ambos, se amolda según la pantalla)
-            ========================================== */}
+        {/* EL FORMULARIO */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2.5rem] backdrop-blur-sm"
+          className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2.5rem] backdrop-blur-sm relative"
         >
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
-                <input 
-                  type="text" 
-                  placeholder="Ej. Juan Pérez / Empresa S.A." 
-                  className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm" 
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Correo Electrónico</label>
-                <input 
-                  type="email" 
-                  placeholder="ejemplo@correo.com" 
-                  className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm" 
-                />
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">¿De qué trata tu proyecto o activación?</label>
-              <textarea 
-                placeholder="Contanos brevemente qué ideas querés poner en marcha..." 
-                rows={5} 
-                className="w-full bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm resize-none"
-              ></textarea>
-            </div>
-            
-            <button 
-              type="button" 
-              className="w-full bg-[#A6CE39] text-[#000000] font-black uppercase tracking-widest p-4 rounded-xl hover:bg-[#FFFFFF] hover:scale-[1.01] shadow-lg transition-all text-xs pt-4 pb-4 mt-2"
+          {submitSuccess ? (
+            // Mensaje de éxito estético
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-12 space-y-4"
             >
-              Enviar Mensaje →
-            </button>
-          </form>
+              <div className="text-4xl">🚀</div>
+              <h4 className="text-xl font-black uppercase tracking-tight text-[#A6CE39]">¡Mensaje enviado con éxito!</h4>
+              <p className="text-gray-400 font-light max-w-sm mx-auto text-sm">
+                Gracias por escribirnos. Nuestro equipo se va a poner en contacto con vos a la brevedad para poner tus ideas en marcha.
+              </p>
+              <button 
+                type="button"
+                onClick={() => setSubmitSuccess(false)}
+                className="text-xs uppercase tracking-widest font-black text-white/60 hover:text-[#A6CE39] transition-colors pt-4 underline"
+              >
+                Enviar otro mensaje
+              </button>
+            </motion.div>
+          ) : (
+            // Formulario Nativo Netlify
+            <form 
+              name="contacto" 
+              onSubmit={handleSubmit}
+              data-netlify="true"
+              className="space-y-6"
+            >
+              {/* Inputs requeridos de forma oculta para los bots de Netlify */}
+              <input type="hidden" name="form-name" value="contacto" />
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Ej. Juan Pérez / Empresa S.A." 
+                    className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
+                      errors.name ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                    }`} 
+                  />
+                  {errors.name && <p className="text-[11px] text-red-400 font-medium">{errors.name}</p>}
+                </div>
+                
+                <div className="space-y-2">
+                  <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Correo Electrónico</label>
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="ejemplo@correo.com" 
+                    className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
+                      errors.email ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                    }`} 
+                  />
+                  {errors.email && <p className="text-[11px] text-red-400 font-medium">{errors.email}</p>}
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">¿De qué trata tu proyecto o activación?</label>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Contanos brevemente qué ideas querés poner en marcha..." 
+                  rows={5} 
+                  className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm resize-none ${
+                    errors.message ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                  }`}
+                ></textarea>
+                {errors.message && <p className="text-[11px] text-red-400 font-medium">{errors.message}</p>}
+              </div>
+              
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="w-full bg-[#A6CE39] text-[#000000] font-black uppercase tracking-widest p-4 rounded-xl hover:bg-[#FFFFFF] hover:scale-[1.01] shadow-lg transition-all text-xs disabled:opacity-50 disabled:cursor-not-allowed pt-4 pb-4 mt-2"
+              >
+                {isSubmitting ? "Enviando..." : "Enviar Mensaje →"}
+              </button>
+            </form>
+          )}
         </motion.div>
 
-        {/* ==========================================
-            TEXTO INFERIOR EXCLUSIVO MOBILE / TABLET (Centrado)
-            ========================================== */}
+        {/* TEXTO INFERIOR EXCLUSIVO MOBILE / TABLET */}
         <motion.div 
           initial="hidden"
           whileInView="visible"

@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="flex items-center py-2 relative z-50">
           <Link href="/" className="transition-transform hover:scale-[1.02] inline-block">
             <Image 
-              src="/logo.png" 
+              src="/logo.svg" 
               alt="Logo ACRIC" 
               width={180} 
               height={90} 
