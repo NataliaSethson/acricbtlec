@@ -88,7 +88,7 @@ export default function Home() {
       title: "STANDS Y FERIAS",
       description: "Nos apasiona destacar la presencia de nuestros clientes en las exposiciones y convenciones más importantes. Diseñamos, producimos e implementamos soluciones arquitectónicas comerciales, garantizando un montaje impecable, estructuras ágiles con la identidad de tu negocio e infraestructura imponente que convierte tu espacio en el principal foco de atención de cualquier evento. ",
       items: ["Stands Exclusivos", "Backing", "Roll Ups", "Arquitectura Comercial", "Montaje Llave en Mano"],
-      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg","/stand-corporativos/stand9.jpeg"]
+      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg","/stand-corporativos/stand9.jpeg","/stand-corporativos/stand10.jpeg"]
     },
     {
       id: "articulos",
@@ -137,7 +137,7 @@ export default function Home() {
       title: "material pop",
       description: "Impresión de: colgantes, danglers, stoppers, banners, entre otros.",
       items: ["OFFSET"],
-      images: ["/material-pop/pop.jpeg","/material-pop/pop0.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg","material-pop/pop6.jpeg","material-pop/pop7.jpeg","material-pop/pop9.jpeg","material-pop/popp.jpeg"]
+      images: ["/material-pop/pop.jpeg","/material-pop/pop0.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg","material-pop/pop6.jpeg","material-pop/pop7.jpeg","material-pop/pop9.jpeg","material-pop/pop10.jpeg","material-pop/pop11.jpeg","material-pop/popp.jpeg"]
     },
     {
       id: "inflables",
