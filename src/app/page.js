@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WspButton from "@/components/WspButton";
 import BrandsMarquee from "@/components/BrandsMarquee";
+import HeroBanner from "@/components/Banner";
 
 function ServiceCarousel({ images, title }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,7 +89,7 @@ export default function Home() {
       title: "STANDS Y FERIAS",
       description: "Nos apasiona destacar la presencia de nuestros clientes en las exposiciones y convenciones más importantes. Diseñamos, producimos e implementamos soluciones arquitectónicas comerciales, garantizando un montaje impecable, estructuras ágiles con la identidad de tu negocio e infraestructura imponente que convierte tu espacio en el principal foco de atención de cualquier evento. ",
       items: ["Stands Exclusivos", "Backing", "Roll Ups", "Arquitectura Comercial", "Montaje Llave en Mano"],
-      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg","/stand-corporativos/stand9.jpeg","/stand-corporativos/stand10.jpeg"]
+      images: ["/stand-corporativos/stand.jpeg", "/stand-corporativos/stand2.jpeg", "/stand-corporativos/stand3.jpeg","/stand-corporativos/stand4.jpeg","/stand-corporativos/stand5.jpeg","/stand-corporativos/stand6.jpeg","/stand-corporativos/stand7.jpeg","/stand-corporativos/stand8.jpeg","/stand-corporativos/stand9.jpeg","/stand-corporativos/stand10.jpeg","/stand-corporativos/stand11.jpeg"]
     },
     {
       id: "articulos",
@@ -137,7 +138,7 @@ export default function Home() {
       title: "material pop",
       description: "Impresión de: colgantes, danglers, stoppers, banners, entre otros.",
       items: ["OFFSET"],
-      images: ["/material-pop/pop.jpeg","/material-pop/pop0.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg","material-pop/pop6.jpeg","material-pop/pop7.jpeg","material-pop/pop9.jpeg","material-pop/pop10.jpeg","material-pop/pop11.jpeg","material-pop/popp.jpeg"]
+      images: ["/material-pop/pop.jpeg","/material-pop/pop0.jpeg", "/material-pop/pop1.jpeg","/material-pop/pop2.jpeg","/material-pop/pop3.jpeg","/material-pop/pop4.jpeg","material-pop/pop5.jpeg","material-pop/pop6.jpeg","material-pop/pop7.jpeg","material-pop/pop9.jpeg","material-pop/pop10.jpeg","material-pop/pop11.jpeg","material-pop/pop12.jpeg","material-pop/popp.jpeg"]
     },
     {
       id: "inflables",
@@ -169,35 +170,7 @@ export default function Home() {
     <div className="bg-[#FFFFFF] text-[#000000] min-h-screen font-sans antialiased pt-20 overflow-x-hidden scroll-smooth">
       <Navbar />
 
-      {/* HERO SECTION */}
-      <section id="inicio" className="min-h-screen w-full flex flex-col justify-center px-6 relative scroll-mt-28 overflow-hidden bg-[#FFFFFF]">
-        <div className="absolute inset-0 w-full h-full">
-          <img 
-            src="/fondo.jpg" 
-            alt="Fondo ACRIC" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[#FFFFFF]/40 backdrop-blur-[2px]" />
-        </div>
-
-        <div className="max-w-7xl mx-auto w-full relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-5xl space-y-6"
-          >
-           <div className="inline-flex items-center gap-2 bg-[#A6CE39] px-4 py-3 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest text-[#000000] shadow-sm">
-           #TUSIDEASENMARCHA
-          </div>
-            
-            <h1 className="text-5xl sm:text-6xl md:text-[6.5rem] font-black tracking-tighter leading-[0.95] md:leading-[0.85] uppercase text-[#000000]">
-              ACRIC <br />
-              <span className="text-font-black">TUS IDEAS EN MARCHA .</span>
-            </h1>
-          </motion.div>
-        </div>
-      </section>
+<HeroBanner></HeroBanner>
 
       {/* SECCIÓN ¿QUIÉNES SOMOS? */}
       <section id="nosotros" className="py-24 md:py-32 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)] scroll-mt-20 block overflow-hidden">
