@@ -34,19 +34,20 @@ export default function HeroBanner() {
       </div>
 
       {/* Contenedor principal */}
-      <div className="max-w-7xl mx-auto w-full relative z-10 pt-16 lg:pt-32 pb-0 flex flex-col justify-center h-full">
+      {/* CLAVE: Añadimos min-[500px]:py-12 y sm:py-16 para garantizar que en pantallas intermedias el bloque tenga su margen superior e inferior y quede perfectamente centrado */}
+      <div className="max-w-7xl mx-auto w-full relative z-10 pt-6 min-[500px]:py-12 sm:py-16 lg:pt-32 lg:pb-0 flex flex-col justify-center h-full">
         
         {/* BLOQUE DE TEXTO */}
         <motion.div 
           whileHover={{ scale: 1.015, x: 5 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className="w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl flex flex-col justify-center space-y-4 sm:space-y-6 text-left z-20 relative pr-4 sm:pr-0 cursor-default"
+          className="w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl flex flex-col justify-center space-y-3 sm:space-y-6 text-left z-20 relative pr-4 sm:pr-0 cursor-default"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
-            className={`self-start inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-widest text-[#FFFFFF] shadow-md select-none transition-colors duration-700 ease-in-out ${badgeColor}`}
+            className={`self-start inline-flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-3 rounded-full text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-widest text-[#FFFFFF] shadow-md select-none transition-colors duration-700 ease-in-out ${badgeColor}`}
           >
             #TUSIDEASENMARCHA
           </motion.div>
@@ -55,7 +56,6 @@ export default function HeroBanner() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            /* CLAVE 1: Agregamos min-[500px]:text-[3.2rem] para inflar el tamaño de la tipografía justo antes del breakpoint sm */
             className="text-4xl min-[500px]:text-[3.2rem] sm:text-[4.2rem] md:text-[6rem] lg:text-[5.5rem] xl:text-[7.0rem] font-black tracking-tighter leading-[0.9] min-[500px]:leading-[0.85] sm:leading-[0.85] uppercase text-[#000000]"
           >
             ACRIC <br />
@@ -73,8 +73,7 @@ export default function HeroBanner() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, type: "spring", stiffness: 45 }}
           whileHover={{ y: -12, scale: 1.02 }}
-          /* CLAVE 2: Agregamos min-[500px]:h-[340px] y ajustamos la posición lateral interna para que rellene perfecto el banner sin flotar */
-          className="absolute right-0 min-[500px]:right-[2%] sm:right-[5%] md:right-0 bottom-0 lg:right-0 lg:bottom-0 z-10 flex justify-end items-end h-[200px] min-[500px]:h-[340px] sm:h-[400px] md:h-[380px] lg:h-[490px] xl:h-[550px] w-[45%] min-[500px]:w-[48%] sm:w-[48%] md:w-[45%] lg:w-[40%] xl:w-[45%] max-w-[480px] pointer-events-auto cursor-pointer"
+          className="absolute right-0 min-[500px]:right-[2%] sm:right-[5%] md:right-0 bottom-0 lg:right-0 lg:bottom-0 z-10 flex justify-end items-end h-[220px] min-[500px]:h-[340px] sm:h-[400px] md:h-[380px] lg:h-[490px] xl:h-[550px] w-[45%] min-[500px]:w-[48%] sm:w-[48%] md:w-[45%] lg:w-[40%] xl:w-[45%] max-w-[480px] pointer-events-auto cursor-pointer"
         >
           <img 
             src={imageSrc} 
