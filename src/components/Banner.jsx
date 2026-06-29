@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function HeroBanner() {
-  // Estado para controlar el slide activo (0 o 1)
+  // Estado para controlar el slide activo (0 o 1) para el fondo
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Efecto para cambiar automáticamente de slide cada 5 segundos
@@ -17,7 +17,6 @@ export default function HeroBanner() {
   const isSlideVerde = currentSlide === 0;
   const backgroundColor = isSlideVerde ? "bg-[#A6CE39]" : "bg-[#FF6B00]";
   const badgeColor = isSlideVerde ? "bg-[#FF6B00]" : "bg-[#000000]";
-  const imageSrc = isSlideVerde ? "/banner.png" : "/banner2.png";
 
   return (
     <section 
@@ -34,7 +33,6 @@ export default function HeroBanner() {
       </div>
 
       {/* Contenedor principal */}
-      {/* CLAVE: Añadimos min-[500px]:py-12 y sm:py-16 para garantizar que en pantallas intermedias el bloque tenga su margen superior e inferior y quede perfectamente centrado */}
       <div className="max-w-7xl mx-auto w-full relative z-10 pt-6 min-[500px]:py-12 sm:py-16 lg:pt-32 lg:pb-0 flex flex-col justify-center h-full">
         
         {/* BLOQUE DE TEXTO */}
@@ -64,22 +62,6 @@ export default function HeroBanner() {
               <br /> EN MARCHA.
             </span>
           </motion.h1>
-        </motion.div>
-
-        {/* BLOQUE DE IMAGEN - LA CHICA CON MEGÁFONO */}
-        <motion.div 
-          key={currentSlide}
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, type: "spring", stiffness: 45 }}
-          whileHover={{ y: -12, scale: 1.02 }}
-          className="absolute right-0 min-[500px]:right-[2%] sm:right-[5%] md:right-0 bottom-0 lg:right-0 lg:bottom-0 z-10 flex justify-end items-end h-[220px] min-[500px]:h-[340px] sm:h-[400px] md:h-[380px] lg:h-[490px] xl:h-[550px] w-[45%] min-[500px]:w-[48%] sm:w-[48%] md:w-[45%] lg:w-[40%] xl:w-[45%] max-w-[480px] pointer-events-auto cursor-pointer"
-        >
-          <img 
-            src={imageSrc} 
-            alt="Creatividad ACRIC" 
-            className="h-full w-auto object-contain object-bottom select-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.18)] hover:drop-shadow-[0_35px_60px_rgba(0,0,0,0.28)] transition-all duration-300"
-          />
         </motion.div>
 
       </div>
