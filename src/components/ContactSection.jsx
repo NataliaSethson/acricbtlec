@@ -36,7 +36,6 @@ export default function ContactSection() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     
-    // Limpia el error del campo que se está modificando
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -68,13 +67,11 @@ export default function ContactSection() {
   // 4. Manejador del Envío compatible con Netlify
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
 
     setIsSubmitting(true);
 
     try {
-      // Función helper para codificar los datos para Netlify POST
       const encode = (data) => {
         return Object.keys(data)
           .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -88,7 +85,7 @@ export default function ContactSection() {
       });
 
       setSubmitSuccess(true);
-      setFormData({ name: "", email: "", message: "" }); // Resetea el formulario
+      setFormData({ name: "", email: "", message: "" }); 
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       alert("Hubo un problema al enviar el mensaje. Intentalo de nuevo.");
@@ -99,6 +96,15 @@ export default function ContactSection() {
 
   return (
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
+      
+      {/* ⚠️ FORMULARIO ESPEJO OCULTO PARA EL BOT DE NETLIFY ⚠️ */}
+      <form name="contacto" data-netlify="true" hidden data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contacto" />
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form>
+
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
         {/* ESTRUCTURA EXCLUSIVA PARA PANTALLAS GRANDES */}
@@ -119,12 +125,10 @@ export default function ContactSection() {
           
           <div className="space-y-4 text-sm md:text-base text-gray-300 font-mono pt-6 border-t border-[#FFFFFF]/10">
             <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-2">Otras vías de contacto</p>
-            
             <a href={`mailto:${acricData.info.email}`} className="flex items-center gap-3 hover:text-[#A6CE39] transition-colors group">
               <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📩</span>
               {acricData.info.email}
             </a>
-            
             <a href={`tel:${acricData.info.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 hover:text-[#A6CE39] transition-colors group">
               <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📞</span>
               {acricData.info.phone}
@@ -149,20 +153,20 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* EL FORMULARIO */}
+        {/* EL FORMULARIO VISIBLE */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2.5rem] backdrop-blur-sm relative"
+          className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2.5rem] backdrop-blur-sm relative overflow-hidden"
         >
-          {submitSuccess ? (
-            // Mensaje de éxito estético
+          {/* Mensaje de éxito absoluto por encima */}
+          {submitSuccess && (
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-4"
+              className="absolute inset-0 bg-[#000000]/95 flex flex-col justify-center items-center text-center p-6 z-50 space-y-4"
             >
               <div className="text-4xl">🚀</div>
               <h4 className="text-xl font-black uppercase tracking-tight text-[#A6CE39]">¡Mensaje enviado con éxito!</h4>
@@ -177,73 +181,71 @@ export default function ContactSection() {
                 Enviar otro mensaje
               </button>
             </motion.div>
-          ) : (
-            // Formulario Nativo Netlify
-            <form 
-              name="contacto" 
-              onSubmit={handleSubmit}
-              data-netlify="true"
-              className="space-y-6"
-            >
-              {/* Inputs requeridos de forma oculta para los bots de Netlify */}
-              <input type="hidden" name="form-name" value="contacto" />
+          )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Ej. Juan Pérez / Empresa S.A." 
-                    className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
-                      errors.name ? "border-red-500/50" : "border-[#FFFFFF]/10"
-                    }`} 
-                  />
-                  {errors.name && <p className="text-[11px] text-red-400 font-medium">{errors.name}</p>}
-                </div>
-                
-                <div className="space-y-2">
-                  <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Correo Electrónico</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="ejemplo@correo.com" 
-                    className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
-                      errors.email ? "border-red-500/50" : "border-[#FFFFFF]/10"
-                    }`} 
-                  />
-                  {errors.email && <p className="text-[11px] text-red-400 font-medium">{errors.email}</p>}
-                </div>
+          <form 
+            name="contacto" 
+            onSubmit={handleSubmit}
+            data-netlify="true"
+            className="space-y-6"
+          >
+            <input type="hidden" name="form-name" value="contacto" />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
+                <input 
+                  type="text" 
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="Ej. Juan Pérez / Empresa S.A." 
+                  className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
+                    errors.name ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                  }`} 
+                />
+                {errors.name && <p className="text-[11px] text-red-400 font-medium">{errors.name}</p>}
               </div>
               
               <div className="space-y-2">
-                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">¿De qué trata tu proyecto o activación?</label>
-                <textarea 
-                  name="message"
-                  value={formData.message}
+                <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Correo Electrónico</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="Contanos brevemente qué ideas querés poner en marcha..." 
-                  rows={5} 
-                  className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm resize-none ${
-                    errors.message ? "border-red-500/50" : "border-[#FFFFFF]/10"
-                  }`}
-                ></textarea>
-                {errors.message && <p className="text-[11px] text-red-400 font-medium">{errors.message}</p>}
+                  placeholder="ejemplo@correo.com" 
+                  className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm ${
+                    errors.email ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                  }`} 
+                />
+                {errors.email && <p className="text-[11px] text-red-400 font-medium">{errors.email}</p>}
               </div>
-              
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full bg-[#A6CE39] text-[#000000] font-black uppercase tracking-widest p-4 rounded-xl hover:bg-[#FFFFFF] hover:scale-[1.01] shadow-lg transition-all text-xs disabled:opacity-50 disabled:cursor-not-allowed pt-4 pb-4 mt-2"
-              >
-                {isSubmitting ? "Enviando..." : "Enviar Mensaje →"}
-              </button>
-            </form>
-          )}
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">¿De qué trata tu proyecto o activación?</label>
+              <textarea 
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Contanos brevemente qué ideas querés poner en marcha..." 
+                rows={5} 
+                className={`w-full bg-[#FFFFFF]/5 border rounded-xl p-4 text-[#FFFFFF] focus:outline-none focus:border-[#A6CE39] transition-colors text-sm resize-none ${
+                  errors.message ? "border-red-500/50" : "border-[#FFFFFF]/10"
+                }`}
+              ></textarea>
+              {errors.message && <p className="text-[11px] text-red-400 font-medium">{errors.message}</p>}
+            </div>
+            
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="w-full bg-[#A6CE39] text-[#000000] font-black uppercase tracking-widest p-4 rounded-xl hover:bg-[#FFFFFF] hover:scale-[1.01] shadow-lg transition-all text-xs disabled:opacity-50 disabled:cursor-not-allowed pt-4 pb-4 mt-2"
+            >
+              {isSubmitting ? "Enviando..." : "Enviar Mensaje →"}
+            </button>
+          </form>
         </motion.div>
 
         {/* TEXTO INFERIOR EXCLUSIVO MOBILE / TABLET */}
@@ -255,13 +257,11 @@ export default function ContactSection() {
           className="block md:hidden flex flex-col items-center text-center space-y-4 text-sm text-gray-300 font-mono pt-6 border-t border-[#FFFFFF]/10 w-full"
         >
           <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 font-bold mb-2">Otras vías de contacto</p>
-          
           <div className="flex flex-col gap-4 w-full items-center">
             <a href={`mailto:${acricData.info.email}`} className="flex items-center justify-center gap-3 hover:text-[#A6CE39] transition-colors group">
               <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📩</span>
               {acricData.info.email}
             </a>
-            
             <a href={`tel:${acricData.info.phone.replace(/\s/g, '')}`} className="flex items-center justify-center gap-3 hover:text-[#A6CE39] transition-colors group">
               <span className="text-[#A6CE39] group-hover:scale-110 transition-transform">📞</span>
               {acricData.info.phone}
