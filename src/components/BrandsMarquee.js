@@ -20,7 +20,6 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo12.jpg", alt: "Logo Empresa 12" },
     { src: "/empresas/logo13.svg", alt: "Logo Empresa 13" },
     { src: "/empresas/logo14.jpg", alt: "Logo Empresa 14" },
-    { src: "/empresas/logo42.png", alt: "Logo Empresa 42" },
     { src: "/empresas/logo40.png", alt: "Logo Empresa 40" },
     { src: "/empresas/logo17.jpg", alt: "Logo Empresa 17" },
     { src: "/empresas/logo18.png", alt: "Logo Empresa 18" },
@@ -47,6 +46,7 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo39.svg", alt: "Logo Empresa 39" },
     { src: "/empresas/logo40.png", alt: "Logo Empresa 40" },
     { src: "/empresas/logo41.png", alt: "Logo Empresa 41" },
+    { src: "/empresas/logo42.png", alt: "Logo Empresa 42" },
   ];
 
   // Duplicamos el array para que el scroll infinito de Framer Motion no deje baches visuales
