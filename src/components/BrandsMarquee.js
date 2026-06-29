@@ -19,7 +19,7 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo22.png", alt: "Logo Empresa 22" },
     { src: "/empresas/logo24.png", alt: "Logo Empresa 24" },
     { src: "/empresas/logo25.png", alt: "Logo Empresa 25" },
-    { src: "/empresas/logo26.jpg", alt: "Logo Empresa 26" },
+    { src: "/empresas/logo26.png", alt: "Logo Empresa 26" },
     { src: "/empresas/logo8.svg", alt: "Logo Empresa 8" },
     { src: "/empresas/logo9.svg", alt: "Logo Empresa 9" },
     { src: "/empresas/logo10.svg", alt: "Logo Empresa 10" },
