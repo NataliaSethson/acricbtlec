@@ -78,11 +78,11 @@ export default function ContactSection() {
           .join("&");
       };
 
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contacto", ...formData }),
-      });
+    await fetch("/formulario.html", {
+  method: "POST",
+  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  body: encode({ "form-name": "contacto", ...formData }),
+});
 
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", message: "" }); 
