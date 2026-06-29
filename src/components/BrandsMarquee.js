@@ -16,6 +16,7 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo8.svg", alt: "Logo Empresa 8" },
     { src: "/empresas/logo9.svg", alt: "Logo Empresa 9" },
     { src: "/empresas/logo10.svg", alt: "Logo Empresa 10" },
+      { src: "/empresas/logo41.png", alt: "Logo Empresa 41" },
     { src: "/empresas/logo11.jpg", alt: "Logo Empresa 11" },
     { src: "/empresas/logo12.jpg", alt: "Logo Empresa 12" },
     { src: "/empresas/logo13.svg", alt: "Logo Empresa 13" },
@@ -45,7 +46,6 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo38.jpg", alt: "Logo Empresa 38" },  
     { src: "/empresas/logo39.svg", alt: "Logo Empresa 39" },
     { src: "/empresas/logo40.png", alt: "Logo Empresa 40" },
-    { src: "/empresas/logo41.png", alt: "Logo Empresa 41" },
     { src: "/empresas/logo42.png", alt: "Logo Empresa 42" },
   ];
 
