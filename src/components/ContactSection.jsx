@@ -61,7 +61,7 @@ export default function ContactSection() {
     return Object.keys(formErrors).length === 0;
   };
 
-  // NUEVO ENVÍO PROFESIONAL DIRIGIDO A TU PROPIO PHP
+  // NUEVO ENVÍO  DIRIGIDO A TU PROPIO PHP
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -94,7 +94,7 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
       
-      {/* SE ELIMINÓ EL FORMULARIO ESPEJO OCULTO DE NETLIFY */}
+     
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
@@ -171,7 +171,7 @@ export default function ContactSection() {
             </motion.div>
           )}
 
-          {/* SE QUITARON LOS ATRIBUTOS DE NETLIFY DEL FORM */}
+         
           <form 
             onSubmit={handleSubmit}
             className="space-y-6"
