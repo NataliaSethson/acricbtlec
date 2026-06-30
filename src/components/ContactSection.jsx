@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function ContactSection() {
-  // 1. Estados para los campos, errores y el proceso de envío
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,7 +30,6 @@ export default function ContactSection() {
     }
   };
 
-  // 2. Manejador de cambios en los inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -41,7 +39,6 @@ export default function ContactSection() {
     }
   };
 
-  // 3. Función de Validación
   const validateForm = () => {
     let formErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -64,7 +61,7 @@ export default function ContactSection() {
     return Object.keys(formErrors).length === 0;
   };
 
-  // 4. Manejador del Envío compatible con Netlify
+  // NUEVO ENVÍO PROFESIONAL DIRIGIDO A TU PROPIO PHP
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -72,20 +69,20 @@ export default function ContactSection() {
     setIsSubmitting(true);
 
     try {
-      const encode = (data) => {
-        return Object.keys(data)
-          .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-          .join("&");
-      };
+      const response = await fetch("/enviar.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    await fetch("/formulario.html", {
-  method: "POST",
-  headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  body: encode({ "form-name": "contacto", ...formData }),
-});
-
-      setSubmitSuccess(true);
-      setFormData({ name: "", email: "", message: "" }); 
+      if (response.ok) {
+        setSubmitSuccess(true);
+        setFormData({ name: "", email: "", message: "" }); 
+      } else {
+        throw new Error("Error en la respuesta del servidor");
+      }
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       alert("Hubo un problema al enviar el mensaje. Intentalo de nuevo.");
@@ -97,17 +94,10 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
       
-      {/*  FORMULARIO ESPEJO OCULTO PARA EL BOT DE NETLIFY  */}
-      <form name="contacto" data-netlify="true" hidden data-netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contacto" />
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <textarea name="message"></textarea>
-      </form>
+      {/* SE ELIMINÓ EL FORMULARIO ESPEJO OCULTO DE NETLIFY */}
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
         
-        {/* ESTRUCTURA EXCLUSIVA PARA PANTALLAS GRANDES */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -136,7 +126,6 @@ export default function ContactSection() {
           </div>
         </motion.div>
 
-        {/* TEXTO SUPERIOR EXCLUSIVO MOBILE / TABLET */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -153,7 +142,6 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-       
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -183,14 +171,11 @@ export default function ContactSection() {
             </motion.div>
           )}
 
+          {/* SE QUITARON LOS ATRIBUTOS DE NETLIFY DEL FORM */}
           <form 
-            name="contacto" 
             onSubmit={handleSubmit}
-            data-netlify="true"
             className="space-y-6"
           >
-            <input type="hidden" name="form-name" value="contacto" />
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-[10px] uppercase tracking-widest font-black text-[#A6CE39]">Nombre / Empresa</label>
@@ -248,7 +233,6 @@ export default function ContactSection() {
           </form>
         </motion.div>
 
-        {/* TEXTO INFERIOR EXCLUSIVO MOBILE / TABLET */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
