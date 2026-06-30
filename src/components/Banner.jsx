@@ -23,7 +23,7 @@ export default function HeroBanner() {
       id="inicio" 
       className={`min-h-[55vh] sm:min-h-[60vh] lg:min-h-[560px] xl:min-h-[620px] w-full flex items-center justify-center px-6 sm:px-12 lg:px-20 relative scroll-mt-28 overflow-hidden transition-colors duration-700 ease-in-out ${backgroundColor}`}
     >
-      {/* TRAMA DE TEXTO REPETITIVO EN TODO EL FONDO */}
+     
       <div className="absolute inset-0 flex flex-col justify-between pointer-events-none select-none opacity-[0.04] w-full h-full overflow-hidden z-0 py-4 font-black uppercase tracking-tighter text-black leading-none">
         <div className="text-[12vw] whitespace-nowrap flex gap-8 -translate-x-10"><span>ACRIC</span><span>ACRIC</span><span>ACRIC</span><span>ACRIC</span></div>
         <div className="text-[12vw] whitespace-nowrap flex gap-8 translate-x-20"><span>ACRIC</span><span>ACRIC</span><span>ACRIC</span><span>ACRIC</span></div>

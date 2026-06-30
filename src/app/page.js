@@ -96,7 +96,7 @@ export default function Home() {
       title: "ARTÍCULOS PROMOCIONALES",
       description: "Tu marca en todos lados. Impulsamos el alcance de tu negocio mostrándote al mundo a través de souvenirs publicitarios estratégicos. Producimos una línea de merchandising corporativo y artículos promocionales de alta calidad, diseñados específicamente para complementar tus eventos físicos, fidelizar clientes de forma masiva y potenciar tus campañas de branding institucional",
       items: ["Souvenirs Publicitarios", "Merchandising Corporativo", "Regalos Empresariales", "Material Promocional Premium"],
-      images: ["/articulos-promocionales/promocionales.jpeg", "/articulos-promocionales/promocionales1.jpeg","/articulos-promocionales/promocionales2.jpeg","/articulos-promocionales/promocionales3.jpeg","/articulos-promocionales/promocionales4.jpeg","/articulos-promocionales/promocionales5.jpeg","/articulos-promocionales/promocionales7.jpeg","/articulos-promocionales/promocionales8.jpeg"]
+      images: ["/articulos-promocionales/promocionales.jpeg", "/articulos-promocionales/promocionales1.jpeg","/articulos-promocionales/promocionales2.jpeg","/articulos-promocionales/promocionales3.jpeg","/articulos-promocionales/promocionales4.jpeg","/articulos-promocionales/promocionales5.jpg","/articulos-promocionales/promocionales7.jpeg","/articulos-promocionales/promocionales8.jpeg"]
     },
 
     {
