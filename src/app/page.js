@@ -173,7 +173,7 @@ export default function Home() {
 <HeroBanner></HeroBanner>
 
       {/* SECCIÓN ¿QUIÉNES SOMOS? */}
-      <section id="nosotros" className="py-24 md:py-32 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)] scroll-mt-20 block overflow-hidden">
+      <section id="nosotros" className="py-18 md:py-20 bg-[#000000] text-[#FFFFFF] rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-20 shadow-[0_-15px_40px_rgba(0,0,0,0.05)] scroll-mt-20 block overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-8 md:gap-12 items-start">
           <motion.div 
             initial="hidden"
@@ -205,12 +205,11 @@ export default function Home() {
 <section id="servicios" className="relative z-30 scroll-mt-20">
   <div className="w-full bg-[#FF6B00] py-14 md:py-20 border-b border-gray-100 overflow-hidden relative select-none">
     <motion.div 
-      // Eliminamos el text-3xl de acá para controlar los tamaños de forma independiente adentro
       className="flex whitespace-nowrap gap-16 md:gap-24 uppercase font-black tracking-tighter text-[#FFFFFF]"
       animate={{ x: [0, "-50%"] }}
       transition={{
         ease: "linear",
-        duration: 15, // Subí a 20s para que al tener más texto se lea cómodo y no pase volando
+        duration: 15, 
         repeat: Infinity
       }}
     >
@@ -220,7 +219,7 @@ export default function Home() {
           <span key={i} className="flex flex-col items-center text-center">
             {/* Título Principal */}
             <span className="text-xl sm:text-2xl md:text-3xl">NUESTROS SERVICIOS</span>
-            {/* Subtítulo más chiquito, fino y estético */}
+            {/* Subtítulo */}
             <span className="text-[10px] sm:text-xs font-light tracking-widest text-[#FFFFFF]/80 normal-case mt-1.0 max-w-[250px] whitespace-normal leading-tight">
               Soluciones creativas y estratégicas para impulsar tu marca.
             </span>
@@ -228,7 +227,7 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Grupo 2 (Copia idéntica para el loop infinito) */}
+      {/* Grupo 2  */}
       <div className="flex gap-16 md:gap-24 shrink-0" aria-hidden="true">
         {[1, 2, 3].map((_, i) => (
           <span key={i} className="flex flex-col items-center text-center">

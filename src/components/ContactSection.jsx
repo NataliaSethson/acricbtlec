@@ -97,7 +97,7 @@ export default function ContactSection() {
   return (
     <section id="contacto" className="bg-[#000000] text-[#FFFFFF] py-24 md:py-32 rounded-t-[2.5rem] md:rounded-t-[4rem] relative z-40 shadow-[0_-15px_40px_rgba(0,0,0,0.15)] scroll-mt-20">
       
-      {/* ⚠️ FORMULARIO ESPEJO OCULTO PARA EL BOT DE NETLIFY ⚠️ */}
+      {/*  FORMULARIO ESPEJO OCULTO PARA EL BOT DE NETLIFY  */}
       <form name="contacto" data-netlify="true" hidden data-netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contacto" />
         <input type="text" name="name" />
@@ -153,7 +153,7 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        {/* EL FORMULARIO VISIBLE */}
+       
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -161,7 +161,7 @@ export default function ContactSection() {
           variants={fadeInUp}
           className="md:col-span-7 bg-[#FFFFFF]/5 border border-[#FFFFFF]/10 p-6 md:p-10 rounded-[2.5rem] backdrop-blur-sm relative overflow-hidden"
         >
-          {/* Mensaje de éxito absoluto por encima */}
+         
           {submitSuccess && (
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}

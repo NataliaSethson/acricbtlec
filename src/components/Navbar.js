@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Links para desktop (Mantiene tu diseño limpio original)
+  // Links para desktop 
   const desktopLinks = [
     { href: "/#btl", label: "Activaciones BTL" },
     { href: "/#stands", label: "Stand y Ferias" },
@@ -16,7 +16,7 @@ export default function Navbar() {
     { href: "/contacto", label: "Contacto" },
   ];
 
-  // Links para mobile (Limpio y con Inicio apuntando al top de la home)
+  // Links para mobile 
   const mobileLinks = [
     { href: "/#", label: "Inicio" },
     ...desktopLinks
@@ -50,7 +50,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* ACCIONES DE LA DERECHA */}
+        
         <div className="flex items-center gap-4 relative z-50">
           {/* BOTÓN COTIZAR DESKTOP */}
           <Link 
@@ -89,7 +89,7 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* CAPA DE FONDO OSCURA (OVERLAY) */}
+            
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -98,7 +98,7 @@ export default function Navbar() {
               className="fixed inset-0 bg-[#000000]/40 backdrop-blur-sm z-30 min-[1101px]:hidden"
             />
 
-            {/* PANEL LATERAL (SIDEBAR DRAWER - Reducido en ancho) */}
+            {/* PANEL LATERAL  */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
@@ -106,7 +106,7 @@ export default function Navbar() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 h-screen w-[230px] sm:w-[280px] bg-[#FFFFFF] shadow-2xl z-40 p-6 pt-32 flex flex-col min-[1101px]:hidden"
             >
-              {/* Contenedor de links (Centrado vertical y horizontal) */}
+           
               <div className="flex-1 flex flex-col justify-center -mt-12">
                 <nav className="flex flex-col space-y-5 text-center text-xs sm:text-sm font-black uppercase tracking-widest text-[#000000]/80">
                   {mobileLinks.map((link) => (
@@ -122,7 +122,7 @@ export default function Navbar() {
                 </nav>
               </div>
 
-              {/* Botón inferior (Centrado dentro de su espacio) */}
+              {/* Botón inferior */}
               <div className="w-full pb-6 flex justify-center">
                 <Link 
                   href="/contacto" 

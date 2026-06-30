@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function BrandsMarquee() {
-  // Declaramos el listado exacto con su respectiva extensión real
+ 
   const logos = [
     { src: "/empresas/logo1.png", alt: "Logo Empresa 1" },
     { src: "/empresas/logo2.png", alt: "Logo Empresa 2" },
@@ -47,7 +47,7 @@ export default function BrandsMarquee() {
     { src: "/empresas/logo42.png", alt: "Logo Empresa 42" },
   ];
 
-  // Duplicamos el array para que el scroll infinito de Framer Motion no deje baches visuales
+ 
   const duplicatedLogos = [...logos, ...logos, ...logos];
 
   return (
@@ -63,17 +63,16 @@ export default function BrandsMarquee() {
 
       {/* CONTENEDOR DE LA MARQUESINA INFINITA */}
       <div className="relative w-full flex items-center select-none overflow-hidden py-4">
-        {/* Degradados sutiles a los costados para dar profundidad premium */}
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
 
-        {/* Tira animada con Framer Motion */}
+      
         <motion.div
           className="flex gap-16 md:gap-24 items-center whitespace-nowrap"
           animate={{ x: [0, -2500] }}
           transition={{
             ease: "linear",
-            duration: 50, // Un toque más suave para que se aprecien bien
+            duration: 50, 
             repeat: Infinity,
           }}
         >

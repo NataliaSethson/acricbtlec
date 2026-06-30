@@ -18,17 +18,17 @@ export const metadata = {
   keywords: ["Agencia BTL", "Marketing", "Activaciones de marca", "Stands", "Ferias", "Publicidad"],
   authors: [{ name: "ACRIC" }],
   
-  // Metas para que se vea estético al compartir por WhatsApp, LinkedIn, Facebook (Open Graph)
+ 
   openGraph: {
     title: "ACRIC | Agencia BTL & Marketing",
     description: "Desarrollamos e implementamos soluciones inteligentes publicitarias y activaciones de alto impacto.",
-    url: "https://www.acricbtl.com", // Cambialo por tu dominio real
+    url: "https://www.acricbtl.com",
     siteName: "ACRIC",
-    locale: "es_EC", // Configurado para Ecuador (o es_AR si es Argentina)
+    locale: "es_EC", 
     type: "website",
     images: [
       {
-        url: "/og-image.png", // Imagen de 1200x630px que se guarda en la carpeta /public
+        url: "/og-image.png", 
         width: 1200,
         height: 630,
         alt: "ACRIC BTL & Marketing",
@@ -36,7 +36,7 @@ export const metadata = {
     ],
   },
 
- // Mapeo explícito de Favicons e Iconos
+
  icons: {
     icon: [
       {
@@ -47,9 +47,9 @@ export const metadata = {
   },
 };
 
-// Configuración del Viewport por separado (Requerido en versiones recientes de Next.js)
+
 export const viewport = {
-  themeColor: "#000000", // El color que toma la barra del navegador en celulares
+  themeColor: "#000000", 
   width: "device-width",
   initialScale: 1,
 };

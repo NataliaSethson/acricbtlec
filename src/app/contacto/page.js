@@ -12,10 +12,10 @@ export default function ContactoPage() {
       <Navbar />
 
       <main className="flex-grow pt-12 flex flex-col justify-between">
-        {/* El componente ahora maneja de forma autónoma el grid, textos, datos y formulario */}
+     
         <ContactSection />
 
-        {/* MAPA DE ANCHO COMPLETO: Cierre limpio al final de la pantalla */}
+       
         <section className="w-full h-96 sm:h-[450px] grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-700 border-t border-neutral-900">
           <iframe
             src={embedMapsUrl}

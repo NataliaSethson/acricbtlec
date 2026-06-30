@@ -8,7 +8,7 @@ export default function WspButton() {
   const message = "Hola ACRIC, vi la web y quería consultar por una cotización.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-  // Animación de levitación continua e infinita
+
   const floatingAnimation = {
     initial: { opacity: 0, scale: 0.8, y: 0 },
     animate: { 
@@ -40,7 +40,6 @@ export default function WspButton() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        // w-14 h-14 y rounded-full garantizan que sea una esfera perfecta
         className="flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:bg-white hover:text-[#25D366] hover:scale-110 transition-all duration-300 group"
       >
         <svg

@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function HeroBanner() {
-  // Estado para controlar el slide activo (0 o 1) para el fondo
+  
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Efecto para cambiar automáticamente de slide cada 5 segundos
+ 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
@@ -13,7 +13,7 @@ export default function HeroBanner() {
     return () => clearInterval(timer);
   }, []);
 
-  // Configuraciones dinámicas según el slide activo
+ 
   const isSlideVerde = currentSlide === 0;
   const backgroundColor = isSlideVerde ? "bg-[#A6CE39]" : "bg-[#FF6B00]";
   const badgeColor = isSlideVerde ? "bg-[#FF6B00]" : "bg-[#000000]";

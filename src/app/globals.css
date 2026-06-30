@@ -2,12 +2,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0b0f19;         /* Negro asfalto profundo */
+  --foreground: #0b0f19;         
   
-  --brand-dark: #0b0f19;         /* Bloques oscuros de alto impacto */
-  --brand-primary: #10b981;      /* Verde esmeralda vivo */
-  --brand-accent: #bfff00;       /* Verde lima flúor BTL */
-  --brand-muted: #4b5563;        /* Gris de soporte */
+  --brand-dark: #0b0f19;        
+  --brand-primary: #10b981;      
+  --brand-accent: #bfff00;      
+  --brand-muted: #4b5563;       
 }
 
 @theme {
